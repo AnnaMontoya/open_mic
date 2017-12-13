@@ -22,12 +22,6 @@ class UserTest < Minitest::Test
     assert_equal "Ali", ali.name
   end
 
-  def test_it_has_jokes
-    joke = Joke.new({id: 1, question: "Why did the strawberry cross the road?", answer: "Because his mother was in a jam."})
-
-    assert_instance_of Joke, joke = Joke.new({id: 1, question: "Why did the strawberry cross the road?", answer: "Because his mother was in a jam."})
-  end
-
   def test_user_has_a_collection_of_jokes
     sal = User.new("Sal")
 
