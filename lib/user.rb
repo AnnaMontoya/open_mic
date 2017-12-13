@@ -1,4 +1,5 @@
 require './lib/joke'
+require 'csv'
 
 class User
   attr_reader :name, :jokes
@@ -6,15 +7,23 @@ class User
   def initialize(name)
     @name   = name
     @jokes  = []
-    @told   = 0
   end
 
   def learn(joke)
-    @jokes << joke
+    if @jokes.include?(joke)
+      @jokes
+    else
+      @jokes << joke
+    end
   end
 
   def tell(name, joke)
-  
+    name.jokes << joke
   end
 
+  def perform_routine_for(name)
+    @jokes.map do |joke|
+      tell(name, joke)
+    end
+  end
 end
